@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahmed Lazrag — Portfolio</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EE73VSV0BT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EE73VSV0BT');
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -285,6 +293,7 @@
   /* Experience */
   #experience { background: var(--bg2); }
 
+ 
   /* Contact */
   #contact { text-align: center; }
   .contact-inner { max-width: 580px; margin: 0 auto; }
@@ -325,28 +334,24 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
-  /* ── Hamburger button (hidden on desktop) ── */
+  /* Hamburger */
   .nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
+    display: none; flex-direction: column;
+    justify-content: center; gap: 5px;
     width: 36px; height: 36px;
     background: none; border: none;
-    cursor: pointer; padding: 4px;
-    z-index: 200;
+    cursor: pointer; padding: 4px; z-index: 200;
   }
   .nav-toggle span {
     display: block; height: 2px; width: 100%;
-    background: var(--text);
-    border-radius: 2px;
+    background: var(--text); border-radius: 2px;
     transition: transform 0.3s, opacity 0.3s;
   }
   .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* ── Tablet ── */
+  /* Tablet */
   @media (max-width: 900px) {
     nav { padding: 1.25rem 2rem; }
     #hero, section { padding-left: 2rem; padding-right: 2rem; }
@@ -358,75 +363,42 @@
     .card-icon { display: none; }
   }
 
-  /* ── Mobile ── */
+  /* Mobile */
   @media (max-width: 640px) {
-    /* Hide custom cursor on touch devices */
     .cursor, .cursor-ring { display: none; }
     body { cursor: auto; }
     a, button, .btn, .nav-links a, .social-link, .skill-card,
-    .stat, .contact-email, .social-link { cursor: pointer; }
-
-    /* Nav: hide links, show hamburger */
-    nav {
-      padding: 1rem 1.25rem;
-      position: fixed;
-    }
+    .stat, .contact-email, .social-link, .project-link { cursor: pointer; }
+    nav { padding: 1rem 1.25rem; position: fixed; }
     .nav-toggle { display: flex; }
     .nav-links {
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(8,10,15,0.98);
-      backdrop-filter: blur(16px);
-      padding: 5rem 2rem 2rem;
-      border-bottom: 1px solid var(--border);
-      z-index: 150;
+      display: none; flex-direction: column; gap: 0;
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(8,10,15,0.98); backdrop-filter: blur(16px);
+      padding: 5rem 2rem 2rem; border-bottom: 1px solid var(--border); z-index: 150;
     }
     .nav-links.open { display: flex; }
     .nav-links li { border-bottom: 1px solid var(--border); }
-    .nav-links a {
-      display: block;
-      padding: 1rem 0;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-    }
-
-    /* Hero */
+    .nav-links a { display: block; padding: 1rem 0; font-size: 1rem; letter-spacing: 0.08em; }
     #hero { padding: 0 1.25rem; padding-top: 5rem; min-height: 100svh; }
     .scroll-hint { left: 1.25rem; font-size: 0.65rem; }
     h1 { font-size: clamp(2.4rem, 11vw, 3.5rem); margin-bottom: 1.25rem; }
     .hero-desc { font-size: 0.92rem; max-width: 100%; }
     .hero-cta { flex-direction: column; gap: 0.75rem; }
     .btn { text-align: center; padding: 0.9rem 1.5rem; font-size: 0.82rem; }
-
-    /* Sections */
     section { padding: 4rem 1.25rem; }
     h2 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
-
-    /* About stats: 2-col stays ok, but shrink padding */
     .about-stats { gap: 0.75rem; }
     .stat { padding: 1rem; }
     .stat-num { font-size: 1.6rem; }
-
-    /* Skills grid: 2 cols on mobile */
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
-
-    /* Skill bars visible by default on mobile (no hover) */
     .skill-bar { transform: scaleX(var(--mobile-level, 0)) !important; transition: transform 1.2s ease !important; }
-
-    /* Info cards */
     .info-card { padding: 1.25rem; grid-template-columns: 1fr; gap: 0.75rem; }
-
-    /* Contact */
     .contact-email { font-size: 0.95rem; word-break: break-all; }
-
-    /* Footer */
     footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.4rem; text-align: center; }
+    .projects-grid { grid-template-columns: 1fr; }
   }
 
-  /* Very small phones */
   @media (max-width: 380px) {
     .skills-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr 1fr; }
@@ -449,6 +421,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -458,10 +431,10 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
-  <div class="hero-tag"> Open to opportunities  Tunis, Tunisia</div>
+  <div class="hero-tag">Open to opportunities · Tunis, Tunisia</div>
   <h1>
     Ahmed Sadek<br>
-    <span class="line2"> Lazrag</span><span class="accent">.</span>
+    <span class="line2">Lazrag</span><span class="accent">.</span>
   </h1>
   <p class="hero-desc">
     First-year BSBA student at Tunis Business School. Self-taught graphic designer, Vibe Coder, and curious mind building skills one day at a time.
@@ -481,7 +454,7 @@
   <div class="about-text reveal">
     <div class="section-label">About Me</div>
     <h2>Student &amp;<br>Creator</h2>
-    <p>Hi, I'm <strong>Ahmed Sadek Lazrag</strong> a first-year Business Administration student at Tunis Business School. I combine an analytical mindset with a creative eye.</p>
+    <p>Hi, I'm <strong>Ahmed Sadek Lazrag</strong> — a first-year Business Administration student at Tunis Business School. I combine an analytical mindset with a creative eye.</p>
     <p>I'm a <strong>self-taught graphic designer</strong> who loves turning ideas into visual stories. I'm also actively learning programming and exploring how design and technology work together.</p>
     <p>I believe in <strong>continuous growth</strong> and I'm always looking for new challenges, fresh ideas, and people to learn from.</p>
     <div class="about-stats">
@@ -490,7 +463,7 @@
         <div class="stat-label">Year at TBS</div>
       </div>
       <div class="stat">
-        <div class="stat-num">High Honor </div>
+        <div class="stat-num">High Honor</div>
         <div class="stat-label">Bac Mention</div>
       </div>
       <div class="stat">
@@ -509,7 +482,7 @@
     <div class="about-card">
       <div class="avatar">AL</div>
       <div class="about-card-name">Ahmed Sadek Lazrag</div>
-      <div class="about-card-role">BSBA Student TBS Tunis</div>
+      <div class="about-card-role">BSBA Student · TBS Tunis</div>
       <div class="about-card-badge">Open to Work</div>
     </div>
   </div>
@@ -566,7 +539,7 @@
       <div class="card-icon">🏛️</div>
       <div>
         <div class="card-title">Tunis Business School — University of Tunis</div>
-        <div class="card-sub">Bachelor of Business Administration (BBA) · Business Administration & Management, General · Grade: 1st Year</div>
+        <div class="card-sub">Bachelor of Business Administration (BBA) · Business Administration &amp; Management, General · Grade: 1st Year</div>
         <div class="card-meta">
           <span class="tag-date">Sep 2025 — Jun 2029</span>
           <span class="tag-badge">In Progress</span>
@@ -610,9 +583,9 @@
 
 <!-- Contact -->
 <section id="contact">
-  <div class="contact-inner reveal">
+  <div class="contact-inner reveal">    
     <h2>Let's Connect</h2>
-    <p>I'm always open to new opportunities, collaborations, or just a friendly conversation. Whether it's an internship, a design project, or a new idea feel free to reach out!</p>
+    <p>I'm always open to new opportunities, collaborations, or just a friendly conversation. Whether it's an internship, a design project, or a new idea  feel free to reach out!</p>
     <a href="mailto:ahmedlazrag490@gmail.com" class="contact-email">ahmedlazrag490@gmail.com</a>
     <div class="social-links">
       <a href="https://www.linkedin.com/in/ahmed-lazrag-381804389/" target="_blank" class="social-link">💼 LinkedIn</a>
@@ -622,10 +595,9 @@
 </section>
 <footer>
   <span>© 2026 Ahmed Sadek Lazrag</span>
-  <span>Designed & Built with ❤️</span>
+  <span>Designed &amp; Built with ❤️</span>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring   = document.getElementById('cursorRing');
@@ -649,15 +621,7 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
 
-  // Skill bars on hover
-  document.querySelectorAll('.skill-card').forEach(card => {
-    const bar = card.querySelector('.skill-bar');
-    const level = parseFloat(card.dataset.level) || 0.5;
-    card.addEventListener('mouseenter', () => bar.style.transform = `scaleX(${level})`);
-    card.addEventListener('mouseleave', () => bar.style.transform = 'scaleX(0)');
-  });
-
-  // Active nav
+  // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   const onScroll = () => {
@@ -678,7 +642,6 @@
     navToggle.classList.toggle('open');
     navLinksEl.classList.toggle('open');
   });
-  // Close nav when a link is clicked
   navLinksEl.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       navToggle.classList.remove('open');
@@ -686,7 +649,7 @@
     });
   });
 
-  // Mobile skill bars: animate on scroll reveal instead of hover
+  // Skill bars — hover on desktop, scroll-trigger on touch
   const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
   document.querySelectorAll('.skill-card').forEach(card => {
     const bar = card.querySelector('.skill-bar');
@@ -696,7 +659,6 @@
       card.addEventListener('mouseenter', () => bar.style.transform = `scaleX(${level})`);
       card.addEventListener('mouseleave', () => bar.style.transform = 'scaleX(0)');
     } else {
-      // Animate when section scrolls into view
       const skillObs = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
